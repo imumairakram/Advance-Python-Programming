@@ -1,12 +1,13 @@
-contacts : dict = {}
+contacts: dict = {}
 
 while True:
-    print("Welcone to the contact book")
+    print("Welcome to the contact book")
     print("1. Add Contact")
     print("2. View Contacts")
     print("3. Edit Contact")
     print("4. Delete Contact")
-    print("5. Exit")
+    print("5. Search Contact")
+    print("6. Exit")
     
     choice = input("Enter your choice: ")
 
@@ -16,7 +17,7 @@ while True:
         contacts[contactname] = contactnumber
 
     elif choice == "2":
-        print ("Contacts")
+        print("Contacts")
         for i in contacts:
             print(f"{i} : {contacts[i]}")
 
@@ -25,7 +26,7 @@ while True:
         if contactname in contacts:
             new_contactnumber = input("Enter new contact number: ")
             contacts[contactname] = new_contactnumber
-            print(f"{contactname} created successfully.")
+            print(f"{contactname} updated successfully.")
         else:
             print("Contact not found.")
         
@@ -36,11 +37,17 @@ while True:
             print(f"{contactname} deleted successfully.")
         else:
             print("Contact not found.")
-
-
+    
     elif choice == "5":
-        print("You Exited from the contact book.")
+        contactname = input("Enter the contact name: ")
+        if contactname in contacts:
+            print(f"{contactname} : {contacts[contactname]}")
+        else:
+            print("Contact not found.")
+
+    elif choice == "6":
+        print("You exited from the contact book.")
         break
     
     else:
-        print("Please try again.")
+        print("Invalid choice. Please try again.")
