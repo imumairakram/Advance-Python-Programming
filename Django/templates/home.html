@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simply Hello</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>{{ message }}</h1>
+
+        <div class="info">
+            <p><strong>Name:</strong> {{ data.name }}</p>
+            <p><strong>Age:</strong> {{ data.age }}</p>
+            <p><strong>Skills:</strong> {{ data.skills }}</p>
+            <p><strong>City:</strong> {{ data.city }}</p>
+        </div>
+    </div>
+
+    <h2>Sign Up Form</h2>
+    <form action="/submit-form" method="POST">
+        {% csrf_token %}
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
